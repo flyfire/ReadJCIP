@@ -17,10 +17,10 @@ public class SThread extends Thread {
 
     @Override
     public void run() {
-        System.out.println("thread -> " + Thread.currentThread().getName() + "before unpark");
+        System.out.println("thread -> " + Thread.currentThread().getName() + " before unpark");
         System.out.println("before thread name -> " + thread.getName() + ",blocker ->" + LockSupport.getBlocker(thread));
         LockSupport.unpark(thread);
-        System.out.println("thread -> " + Thread.currentThread().getName() + "after unpark");
+        System.out.println("thread -> " + Thread.currentThread().getName() + " after unpark");
         System.out.println("after thread name -> " + thread.getName() + ",blocker ->" + LockSupport.getBlocker(thread));
     }
 }
