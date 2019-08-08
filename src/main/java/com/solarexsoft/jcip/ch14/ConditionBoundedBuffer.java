@@ -33,7 +33,7 @@ public class ConditionBoundedBuffer<T> {
                 tail = 0;
             }
             count++;
-            notEmpty.signalAll();
+            notEmpty.signal();
         } finally {
             lock.unlock();
         }
@@ -51,7 +51,7 @@ public class ConditionBoundedBuffer<T> {
                 head = 0;
             }
             count--;
-            notFull.signalAll();
+            notFull.signal();
             return x;
         } finally {
             lock.unlock();
